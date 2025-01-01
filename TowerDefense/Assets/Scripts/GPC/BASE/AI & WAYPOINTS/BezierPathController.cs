@@ -21,13 +21,16 @@ namespace Harris.GPC
 		[SerializeField]
 		private bool initialized = false;
 
+		[SerializeField]
+		private int numWayPointsMinusOne;
 		public override void GetTransforms()
 		{
 			// we store all of the waypoints transforms in a List
 			_transforms = new List<Transform>();
 			int i = 4;
 
-			for(float t = 0; t <= 1; t += 0.1f)
+			//for(float t = 0; t <= 1; t += 0.1f)
+			for(float t = 0; t <= 1.01f; t += 1.0f/numWayPointsMinusOne)
 			{
 				var goPos = Mathf.Pow(1 - t, 3) * controlPoints[0].position + 3 * Mathf.Pow(1 - t, 2) * t * controlPoints[1].position + 3 * (1 - t) * Mathf.Pow(t, 2) * controlPoints[2].position + Mathf.Pow(t, 3) * controlPoints[3].position;
 				

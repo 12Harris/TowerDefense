@@ -29,9 +29,7 @@ namespace TowerDefense
 
         private Material _validTargetMat;
 
-        private Transform _invalidTargetIndicator;
-
-        private Transform _temp = null;
+        private Transform _targetIndicator;
 
         public override void Awake()
         {
@@ -45,10 +43,12 @@ namespace TowerDefense
             _selectedIndicator = transform.Find("SelectedIndicator");
             _selectedIndicator.transform.localScale = new Vector3(2,transform.localScale.y,2);
 
-            _invalidTargetIndicator = transform.Find("InvalidTargetIndicator");
+            _targetIndicator = transform.Find("TargetIndicator");
+            _targetIndicator.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
             //_invalidTargetIndicator.transform.localScale = new Vector3(Base_Detection_Range*2,transform.localScale.y,Base_Detection_Range*2);
 
             _detectionRangeIndicator.transform.localScale = new Vector3(Base_Detection_Range*2,transform.localScale.y,Base_Detection_Range*2);
+            _detectionRangeIndicator.transform.gameObject.SetActive(false);
             _detectionTrigger.radius = Base_Detection_Range;
         }
 
@@ -86,14 +86,12 @@ namespace TowerDefense
             if(Selected)
             {
                 _selectedIndicator.gameObject.SetActive(true);
-                if(_temp)
-                    _temp.gameObject.SetActive(true);
+                _targetIndicator.gameObject.SetActive(true);
             }
             else
             {
                 _selectedIndicator.gameObject.SetActive(false);
-                if(_temp)
-                    _temp.gameObject.SetActive(false);
+                _targetIndicator.gameObject.SetActive(false);
             }
         }
 
@@ -116,37 +114,25 @@ namespace TowerDefense
                 CanFire = false;
                 if((v2-v1).magnitude > 10)
                 {
-                    if(!_detectionRangeIndicator.gameObject.activeSelf)
-                    {
-                        _detectionRangeIndicator.gameObject.SetActive(true);
-                        _invalidTargetIndicator.gameObject.SetActive(false);
-                        _temp = _detectionRangeIndicator;
-                    }
 
-                    _projectileDirection = transform.position + (_temp.position-transform.position) - v1;
+                    _detectionRangeIndicator.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+                    _targetIndicator.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+                    
+
+                    _projectileDirection = transform.position + (_detectionRangeIndicator.position-transform.position) - v1;
                 }
 
-                else if((v2-v1).magnitude > 2)
-                {
-                    if(_detectionRangeIndicator.gameObject.activeSelf)
-                    {
-                        _detectionRangeIndicator.gameObject.SetActive(false);
-                        _invalidTargetIndicator.gameObject.SetActive(true);
-                    }
-                    _temp = _invalidTargetIndicator;
-                }
                 else
                 {
-                    _temp = null;
+                    
+                    _detectionRangeIndicator.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+                    _targetIndicator.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+                    
                 }
 
-                if(_temp == null)
-                    return;
+                _targetIndicator.position = _detectionRangeIndicator.position = new Vector3(v2.x,_detectionRangeIndicator.position.y, v2.z);
 
-                _temp.position = new Vector3(v2.x,_temp.position.y, v2.z);
-
-                if(_temp == _detectionRangeIndicator)
-                    _detectionTrigger.center = transform.InverseTransformPoint(transform.position + (_detectionRangeIndicator.position-transform.position));
+                _detectionTrigger.center = transform.InverseTransformPoint(transform.position + (_detectionRangeIndicator.position-transform.position));
 
                 //public static void DrawRay(Vector3 start, Vector3 dir, Color color = Color.white, float duration = 0.0f, bool depthTest = true);
                 Debug.DrawRay(_muzzlePoint.position, _projectileDirection, Color.red);
