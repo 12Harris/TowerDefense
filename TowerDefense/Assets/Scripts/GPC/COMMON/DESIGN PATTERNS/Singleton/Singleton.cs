@@ -2,7 +2,7 @@
 
 #pragma warning disable 0414
 
-namespace Harris.Util
+namespace Harris.GPC
 {
 
     using UnityEngine;

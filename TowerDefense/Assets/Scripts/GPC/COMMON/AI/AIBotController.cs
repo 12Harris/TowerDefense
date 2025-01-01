@@ -29,9 +29,6 @@ namespace Harris.GPC
 		private Vector3 targetPosition;
 
 		[SerializeField]
-		public WaypointsController home_waypointsController;
-
-		[SerializeField]
 		private ObstacleWaypointsController obs_waypointsController;
 
 		public bool avoidObstacle = false;
@@ -44,13 +41,15 @@ namespace Harris.GPC
 
 		public int animIDSpeed = 0;
 		public int animIDMotionSpeed = 0;
-		
+
+		public int currentPathIndex = 0;
+
 	public virtual void Awake()
 	{
 		animator = GetComponent<Animator>();
 		hasAnimator = animator != null;
 	}
-	public virtual void Start()
+	public override void Start()
 	{
 
 		base.Start();
@@ -58,7 +57,8 @@ namespace Harris.GPC
 		animator = GetComponent<Animator>();
 		stopMovement = false;
 
-		SetWayController(home_waypointsController);
+		//current_waypointsController.GetTransforms();
+		//SetWayController(current_waypointsController);
 
 		_onReachedNextWaypoint += handleReachedNextWaypoint;
 		_onReachedLastWaypoint += handleReachedLastWaypoint;
@@ -74,7 +74,7 @@ namespace Harris.GPC
 
 		public void MoveHome()
 		{
-			SetWayController(home_waypointsController);
+			SetWayController(current_waypointsController);
 			SetAIState(AIState.move_along_waypoint_path);
 		}
 
@@ -83,19 +83,19 @@ namespace Harris.GPC
 			
 		}
 
-		private void handleReachedLastWaypoint()
+		protected virtual void handleReachedLastWaypoint()
 		{
-			if (_waypointsController != home_waypointsController && !CanSee(_followTarget)) // and ! cansee player
+			/*if (_waypointsController != current_waypointsController && !CanSee(_followTarget)) // and ! cansee player
 			{
-				SetWayController(home_waypointsController);
+				SetWayController(current_waypointsController);
 				shouldReversePathFollowing = false;
-			}
+			}*/
 		}
 
 		public override void Update()
 		{
 			base.Update();
-			distanceToChaseTarget = Vector3.Distance(_TR.position, _followTarget.position);
+			//distanceToChaseTarget = Vector3.Distance(_TR.position, _followTarget.position);
 		}
 
 		public void SetAvoidObstacleFlag()
@@ -180,12 +180,18 @@ namespace Harris.GPC
 			stopMovement = true;
 		}
 
+		public void Stop()
+		{
+			rb.velocity = Vector3.zero;
+		}
+
 		public void MoveAlongWaypointPath()
 		{
 
 			// make sure we have been initialized before trying to access waypoints
 			if (!didInit && !reachedLastWaypoint)
 			{
+				Debug.Log("GRRR");
 				return;
 			}
 
@@ -200,24 +206,12 @@ namespace Harris.GPC
 
 			moveVec = targetMoveVec;
 
-			if (distanceToChaseTarget > minChaseDistance)
-			{
-				rb.velocity = moveVec * moveSpeed;
+			rb.velocity = moveVec * moveSpeed;
 
-				if (hasAnimator)
-				{
-					animator.SetFloat(animIDSpeed, moveSpeed);
-					animator.SetFloat(animIDMotionSpeed, 1);
-				}
-			}
-			else
+			if (hasAnimator)
 			{
-				rb.velocity = Vector3.zero;
-				if (hasAnimator)
-				{
-					animator.SetFloat(animIDSpeed, 0f);
-					animator.SetFloat(animIDMotionSpeed, 1);
-				}
+				animator.SetFloat(animIDSpeed, moveSpeed);
+				animator.SetFloat(animIDMotionSpeed, 1);
 			}
 
 			if (faceWaypoints)

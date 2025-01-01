@@ -18,32 +18,6 @@ namespace Harris.GPC
         }
     }
 
-    public abstract class EventTypes : EnumBase
-    {
-        private Event _event = null;
-
-        public EventTypes (string value, Event _ev)
-            : this(value)
-        {
-            _event = _ev;
-        }
-
-        private EventTypes (string value)
-            : base(value)
-        {
- 
-        }
-
-        public Event GetEvent()
-        {
-            if(_event == null)
-                _event = new GameEvent();
-            
-            return _event;
-        }
-
-    }
-
     public class GameEventTypes : EventTypes
     {
         public static readonly GameEventTypes START =  new GameEventTypes("START",  new GameEvent());

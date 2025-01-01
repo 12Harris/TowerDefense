@@ -18,11 +18,12 @@ namespace Harris.GPC
 		protected InputAction wasdAction;
 		protected InputAction spaceBarAction;
 		protected InputAction shitfBtnAction;
+		protected InputAction lShiftBtnAction;
 
-		public void Initialize()
+		public virtual void Initialize()
 		{
 			wasdAction = InputActions.Player.WASD;
-			
+			lShiftBtnAction = InputActions.Player.Shift;
 		}
 
 		public void LateUpdate()

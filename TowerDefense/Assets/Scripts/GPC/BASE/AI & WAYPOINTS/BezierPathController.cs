@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+
 namespace Harris.GPC
 {
 	using Harris.Util;
@@ -25,7 +27,7 @@ namespace Harris.GPC
 			_transforms = new List<Transform>();
 			int i = 4;
 
-			for(float t = 0; t <= 1; t += 0.05f)
+			for(float t = 0; t <= 1; t += 0.1f)
 			{
 				var goPos = Mathf.Pow(1 - t, 3) * controlPoints[0].position + 3 * Mathf.Pow(1 - t, 2) * t * controlPoints[1].position + 3 * (1 - t) * Mathf.Pow(t, 2) * controlPoints[2].position + Mathf.Pow(t, 3) * controlPoints[3].position;
 				

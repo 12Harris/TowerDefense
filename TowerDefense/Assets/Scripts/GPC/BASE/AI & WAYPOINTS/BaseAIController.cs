@@ -30,7 +30,7 @@ namespace Harris.GPC
 
 		[Header("Waypoints")]
 		// waypoint following related variables
-		public WaypointsController _waypointsController;
+		public WaypointsController current_waypointsController;
 
 		public Transform _currentWaypointTransform;
 		public Transform _followTarget;
@@ -310,11 +310,11 @@ namespace Harris.GPC
 		//Here is the problem
 		public void SetWayController(WaypointsController aControl, bool reset = true)
 		{
-			_waypointsController = aControl;
+			current_waypointsController = aControl;
 			aControl = null;
 
 			// grab total waypoints
-			totalWaypoints = _waypointsController.GetTotal();
+			totalWaypoints = current_waypointsController.GetTotal();
 
 			if (reset)
 			{
@@ -332,12 +332,16 @@ namespace Harris.GPC
 				Init();
 
 				// get the first waypoint from the waypoint controller
-				_currentWaypointTransform = _waypointsController.GetWaypoint(currentWaypointNum);
+				_currentWaypointTransform = current_waypointsController.GetWaypoint(currentWaypointNum);
+				if(_currentWaypointTransform == null)
+					Debug.Log("Current wp + " + currentWaypointNum + " is null!");
 
 				if (startAtFirstWaypoint)
 				{
 					// position at the _currentWaypointTransform position
-					_TR.position = _currentWaypointTransform.position;
+					var v = _currentWaypointTransform.position;
+					v.y = _TR.position.y;
+					_TR.position = v;
 				}
 			}
 		}
@@ -355,7 +359,7 @@ namespace Harris.GPC
 		public void UpdateWaypoints()
 		{
 			// If we don't have a waypoint controller, we safely drop out
-			if (_waypointsController == null)
+			if (current_waypointsController == null)
 				return;
 
 			if (reachedLastWaypoint && destroyAtEndOfWaypoints)
@@ -372,7 +376,7 @@ namespace Harris.GPC
 			if (totalWaypoints == 0)
 			{
 				// grab total waypoints
-				totalWaypoints = _waypointsController.GetTotal();
+				totalWaypoints = current_waypointsController.GetTotal();
 				return;
 			}
 	
@@ -380,7 +384,7 @@ namespace Harris.GPC
 			{
 				Debug.Log("Curent wp is null?");
 				// grab our transform reference from the waypoint controller
-				_currentWaypointTransform = _waypointsController.GetWaypoint(currentWaypointNum + lookAheadWaypoints);
+				_currentWaypointTransform = current_waypointsController.GetWaypoint(currentWaypointNum + lookAheadWaypoints);
 			}
 
 			// now we check to see if we are close enough to the current waypoint
@@ -425,7 +429,7 @@ namespace Harris.GPC
 							currentWaypointNum = totalWaypoints - 1;
 
 							//This needed to be added by me!!! what a shame by the coder!!!
-							_currentWaypointTransform = _waypointsController.GetWaypoint(currentWaypointNum);
+							_currentWaypointTransform = current_waypointsController.GetWaypoint(currentWaypointNum);
 
 							reachedLastWaypoint = false;
 						}
@@ -447,11 +451,12 @@ namespace Harris.GPC
 							currentWaypointNum = 0;
 
 							//This needed to be added by me!!! what a shame by the coder!!!
-							_currentWaypointTransform = _waypointsController.GetWaypoint(currentWaypointNum);
+							_currentWaypointTransform = current_waypointsController.GetWaypoint(currentWaypointNum);
 
 							// the route keeps going in a loop, so we don't want reachedLastWaypoint to ever become true
 							reachedLastWaypoint = false;
 						}
+
 						// drop out of this function before we grab another waypoint into _currentWaypointTransform, as
 						// we don't need one and the index may be invalid
 						return;
@@ -460,7 +465,7 @@ namespace Harris.GPC
 				}
 
 				// grab our transform reference from the waypoint controller
-				_currentWaypointTransform = _waypointsController.GetWaypoint(currentWaypointNum);
+				_currentWaypointTransform = current_waypointsController.GetWaypoint(currentWaypointNum);
 
 			}
 		}

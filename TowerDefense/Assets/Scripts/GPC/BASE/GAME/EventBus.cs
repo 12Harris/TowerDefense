@@ -5,6 +5,30 @@ using System;
 
 namespace Harris.GPC
 {
+
+    public abstract class EventTypes : EnumBase
+    {
+        private Event _event = null;
+
+        public EventTypes (string value, Event _ev)
+            : this(value)
+        {
+            _event = _ev;
+        }
+
+        private EventTypes (string value)
+            : base(value)
+        {
+ 
+        }
+
+        public Event GetEvent()
+        {
+            return _event;
+        }
+
+    }
+
     public class EventBus<T> where T: EventTypes                        
     {
         private static readonly 

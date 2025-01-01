@@ -5,15 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Waypoint
+  - Enemy
+  - Turret
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Waypoint
   - Water
   - UI
-  - 
-  - 
+  - Ground
+  - Turret
   - 
   - 
   - 

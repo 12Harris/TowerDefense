@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+
 namespace Harris.GPC
 {
 	using Harris.Util;
@@ -13,7 +15,7 @@ namespace Harris.GPC
 		[ExecuteInEditMode]
 
 		public List<Transform> _transforms;
-		protected Vector3 firstPoint; // store our first waypoint so we can loop the path
+		public Vector3 firstPoint; // store our first waypoint so we can loop the path
 		protected Vector3 currentPoint;
 		protected Vector3 lastPoint;
 		protected float distance;
@@ -26,9 +28,18 @@ namespace Harris.GPC
 		public bool closed = true;
 		public bool shouldReverse;
 
+		public static event Action<WaypointsController> _onCreated;
+
+		public virtual void Awake()
+		{
+			this.enabled = true;
+		}
+
 		public virtual void Start()
 		{
 			GetTransforms();
+			Debug.Log("wp controller onenable");
+			_onCreated?.Invoke(this);
 		}
 
 		public void OnDrawGizmos()
@@ -243,12 +254,17 @@ namespace Harris.GPC
 
 			// make sure that we have populated the transforms list, if not, populate it
 			if (_transforms == null)
+			{
+				Debug.Log("Transforms is null!");
 				GetTransforms();
+			}
 
 			//in case we didnt reverse make sure the index is within the waypoints boundaries
 			if (index > totalTransforms - 1)
+			{
+				Debug.Log("index out of bounds!" + index + ", " +  totalTransforms);
 				return null;
-
+			}
 			return (Transform)_transforms[index];
 		}
 
