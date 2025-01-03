@@ -49,7 +49,7 @@ namespace TowerDefense
 
             _detectionRangeIndicator.transform.localScale = new Vector3(Base_Detection_Range*2,transform.localScale.y,Base_Detection_Range*2);
             _detectionRangeIndicator.transform.gameObject.SetActive(false);
-            _detectionTrigger.radius = Base_Detection_Range;
+            //_detectionTrigger.Radius = Base_Detection_Range;
         }
 
         // Update is called once per frame
@@ -70,7 +70,7 @@ namespace TowerDefense
                 if(CanFire && Targets.Count > 0)
                 {
 
-                    var _lookAt = new Vector3(_detectionTrigger.center.x,transform.position.y,_detectionTrigger.center.z);
+                    var _lookAt = new Vector3(_detectionTrigger.Center.x,transform.position.y,_detectionTrigger.Center.z);
                     TowerHead.LookAt(_lookAt);
                     Fire();
 
@@ -132,7 +132,7 @@ namespace TowerDefense
 
                 _targetIndicator.position = _detectionRangeIndicator.position = new Vector3(v2.x,_detectionRangeIndicator.position.y, v2.z);
 
-                _detectionTrigger.center = transform.InverseTransformPoint(transform.position + (_detectionRangeIndicator.position-transform.position));
+                //_detectionTrigger.Center = transform.InverseTransformPoint(transform.position + (_detectionRangeIndicator.position-transform.position));
 
                 //public static void DrawRay(Vector3 start, Vector3 dir, Color color = Color.white, float duration = 0.0f, bool depthTest = true);
                 Debug.DrawRay(_muzzlePoint.position, _projectileDirection, Color.red);

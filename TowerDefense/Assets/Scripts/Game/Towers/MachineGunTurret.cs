@@ -14,7 +14,7 @@ namespace TowerDefense
         {
             base.Start();
             _detectionRangeIndicator.transform.localScale = new Vector3(Base_Detection_Range*2,transform.localScale.y,Base_Detection_Range*2);
-            _detectionTrigger.radius = Base_Detection_Range;
+            _detectionTrigger.Radius = Base_Detection_Range;
         }
 
         // Update is called once per frame

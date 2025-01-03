@@ -36,7 +36,7 @@ namespace Algorithms_C__Harris.Arrays
 
 	}
 
-	internal class Array<T>
+	public class Array<T>
 	{
 		private List<T> arr;
 		public T Zero { get; set; }

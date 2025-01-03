@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 using System.Xml.Linq;
+using UnityEngine;
 
 namespace Algorithms_C__Harris.Lists
 {
 	using Algorithms_C__Harris.Arrays;
 	using System.Collections;
 
-	internal class SListNode<T>
+	public class SListNode<T>
 	{
 		public T m_data;
 		public SListNode<T> m_next;
@@ -41,11 +42,13 @@ namespace Algorithms_C__Harris.Lists
 		}
 	}
 
-	internal class SLinkedList<T> : IEnumerable<T>
+	[Serializable]
+	public class SLinkedList<T> : IEnumerable<T>
 	{
 		public SListNode<T> m_head;
 		public SListNode<T> m_tail;
-		int m_count;
+		private int m_count;
+		public int Count => m_count;
 		public T Zero { get; set; }
 
 		//Indexer
@@ -294,7 +297,7 @@ namespace Algorithms_C__Harris.Lists
 		}
 	}
 
-	internal class SListIterator<T>
+	public class SListIterator<T>
 	{
 		public SListNode<T> m_node;
 		public SLinkedList<T> m_list;

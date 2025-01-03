@@ -6,6 +6,7 @@ using Harris.Util;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Algorithms_C__Harris.Lists;
 
 namespace TowerDefense
 {
@@ -16,7 +17,10 @@ namespace TowerDefense
         private float _base_detection_range;
         public float Base_Detection_Range => _base_detection_range;
         protected Transform _detectionRangeIndicator;
-        protected SphereCollider _detectionTrigger;
+        //protected SphereCollider _detectionTrigger;
+
+        [SerializeField]
+        protected DetectionTrigger _detectionTrigger;
 
         [SerializeField]
         private float _base_rof;
@@ -37,15 +41,22 @@ namespace TowerDefense
 
         private RotateObject _headRotationComponent;
 
+        //[SerializeField]
+        //private List<Enemy> _targets;
+        //public List<Enemy> Targets => _targets;
+
         [SerializeField]
-        private List<Enemy> _targets;
-        public List<Enemy> Targets => _targets;
+        private SLinkedList<Enemy> _targets;
+        public SLinkedList<Enemy> Targets => _targets;
 
         private int _currentTarget = 0;
         public int CurrentTarget => _currentTarget;
 
         public static event Action<Enemy> _onTargetInRange;
         public static event Action<Enemy> _onTargetLost;
+
+        //private List<Turret> _friends;
+        //public List<Turret> Friends => _friends;
 
         private List<Turret> _friends;
         public List<Turret> Friends => _friends;
@@ -87,11 +98,24 @@ namespace TowerDefense
             _headRotationComponent = GetComponent<RotateObject>();
             _towerHead = transform.Find("Head");
             _detectionRangeIndicator = transform.Find("DetectionRangeIndicator");
-            _detectionTrigger = gameObject.GetComponent<SphereCollider>();
-            _targets = new List<Enemy>();
+            
+            _detectionTrigger._onEnemyDetected += AddEnemy;
+            _detectionTrigger._onFirstEnemyLost += RemoveFirstEnemy;
+            //_targets = new List<Enemy>();
+            _targets = new SLinkedList<Enemy>(null);
             _friends = new List<Turret>();
             _muzzlePoint = transform.Find("Head/Barrell/MuzzlePoint");
             _boxCollider = GetComponent<BoxCollider>();
+        }
+
+        private void AddEnemy(Enemy enemy)
+        {
+            _targets.Append(enemy);
+        }
+
+        private void RemoveFirstEnemy()
+        {
+            _targets.RemoveHead();
         }
 
         // Start is called before the first frame update
@@ -116,12 +140,16 @@ namespace TowerDefense
             {
                 
                 //Target Calculation
-                if(_targets.Count < 3)
+                
+                _currentTarget = 0;
+                Debug.Log("Current Tagets is: " + _targets[_currentTarget]);
+                /*if(_targets.Count < 3)
                 {
                     _currentTarget = 0;
 
                 }
-                else
+                else*/
+                if(_targets.Count >= 3)
                 {
     
                     int i = 0;
@@ -150,7 +178,8 @@ namespace TowerDefense
 
                     if(bestFriend != null)
                     {
-                        bestFriend.Targets.RemoveAt(0);
+                        //bestFriend.Targets.RemoveAt(0);
+                        bestFriend.Targets.RemoveHead();
                     }
                 }
             }
@@ -194,31 +223,6 @@ namespace TowerDefense
                 Select();
             }
         }
-
-        void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.tag == "Enemy")
-            {
-                var enemy = other.gameObject.GetComponent<Enemy>();
-                //enemy.AddPotentialAttacker(this);
-
-                _targets.Add(enemy);
-
-            }
-        }
-
-        void OnTriggerExit(Collider other)
-        {
-            if (other.gameObject.tag == "Enemy")
-            {
-                var enemy = other.gameObject.GetComponent<Enemy>();
-
-                _targets.Remove(enemy);
-
-                //enemy.RemovePotentialAttacker(this);
-            }
-        }
-
 
         public virtual Vector3 GetFinalPlacementLocation(Vector3 placementPosition) //Put this logic into turret module(abstract) cannon placement range...
         {

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 713823299190445427}
   - component: {fileID: 6995258790660044245}
-  - component: {fileID: 3343717718760106417}
   - component: {fileID: 6604043771215459488}
   m_Layer: 7
   m_Name: Cannon
@@ -60,27 +59,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0971136, y: 1.2846938, z: 2.2341652}
   m_Center: {x: 0.0044140816, y: 0.14234692, z: 0.16247368}
---- !u!135 &3343717718760106417
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610143375963681179}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6604043771215459488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,9 +72,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _base_detection_range: 5
+  _detectionTrigger: {fileID: 2126334353529530594}
   _base_rof: 0.3
   _base_attack_power: 12
-  _targets: []
   _cannonProjectilePrefab: {fileID: 6474178177122552347, guid: 3fa52eec71c22d149a2ceefc1dcbe9ef, type: 3}
   _initialAngle: 30
 --- !u!1 &2589293217822652480
@@ -194,6 +172,7 @@ GameObject:
   - component: {fileID: 6576697078216400808}
   - component: {fileID: 3150686688425419001}
   - component: {fileID: 1977042589439521404}
+  - component: {fileID: 2126334353529530594}
   m_Layer: 7
   m_Name: DetectionRangeIndicator
   m_TagString: Untagged
@@ -283,10 +262,22 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2126334353529530594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3304282290949063510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93d7d217cc3c44419761f726a2df5f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5942972258504207828
 GameObject:
   m_ObjectHideFlags: 0
