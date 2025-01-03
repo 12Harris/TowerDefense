@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base_detection_range: 5
   _base_rof: 0.3
-  _base_attack_power: 16
+  _base_attack_power: 12
   _targets: []
   _cannonProjectilePrefab: {fileID: 6474178177122552347, guid: 3fa52eec71c22d149a2ceefc1dcbe9ef, type: 3}
   _initialAngle: 30

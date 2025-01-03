@@ -233,11 +233,11 @@ namespace TowerDefense
             rayDirections[3] = -Vector3.right;
 
             //public static void DrawRay(Vector3 start, Vector3 dir, Color color = Color.white, float duration = 0.0f, bool depthTest = true);
-            
+            var treeLayer = 1 << 8;
             foreach(var rayDirection in rayDirections)
             {
                 Debug.DrawRay(placementPosition - rayDirection + Vector3.up*0.5f, rayDirection * 2f, Color.green);
-                if (Physics.Raycast( placementPosition - rayDirection + Vector3.up*0.5f, rayDirection ,out rayHit,2f, _turret_waypoint_layer))
+                if (Physics.Raycast( placementPosition - rayDirection + Vector3.up*0.5f, rayDirection ,out rayHit,2f, _turret_waypoint_layer | treeLayer))
                 {
                     if(rayHit.collider.gameObject.tag == "Turret" && rayHit.collider == rayHit.collider.gameObject.GetComponent<Turret>().BoxCollider)
                         return Vector3.zero;

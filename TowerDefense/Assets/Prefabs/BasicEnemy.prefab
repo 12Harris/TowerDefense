@@ -289,7 +289,7 @@ MonoBehaviour:
   _currentWaypointTransform: {fileID: 0}
   _followTarget: {fileID: 0}
   _rotateTransform: {fileID: 0}
-  waypointDistance: 0.2
+  waypointDistance: 0.05
   pathSmoothing: 2
   shouldReversePathFollowing: 0
   loopPath: 0

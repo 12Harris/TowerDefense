@@ -73,7 +73,7 @@ namespace Harris.GPC
 				currentPoint = _tempTR.position;
 
 				Gizmos.color = Color.green;
-				//Gizmos.DrawSphere(currentPoint, .3f);
+				Gizmos.DrawSphere(currentPoint, .3f);
 
 				// draw the line between the last waypoint and this one
 				Gizmos.color = Color.red;

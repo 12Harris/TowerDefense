@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyCount: 6
   _enemyType: 0
-  _spawnInterval: 1
+  _spawnInterval: 2

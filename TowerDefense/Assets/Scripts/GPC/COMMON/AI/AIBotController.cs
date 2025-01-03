@@ -191,7 +191,6 @@ namespace Harris.GPC
 			// make sure we have been initialized before trying to access waypoints
 			if (!didInit && !reachedLastWaypoint)
 			{
-				Debug.Log("GRRR");
 				return;
 			}
 
