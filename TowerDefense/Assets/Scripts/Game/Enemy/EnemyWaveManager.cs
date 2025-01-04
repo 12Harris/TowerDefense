@@ -13,6 +13,11 @@ namespace TowerDefense
         [SerializeField]
         private Enemy[] _enemyPrefabs;
 
+        private List<Enemy> _enemyList;
+
+        [SerializeField]
+        private List<GameObject> _plants;
+
         private float _spawnTimer = 0;
         private int _spawnedEnemies = 0;
         private int _currentWave = 1;
@@ -55,6 +60,7 @@ namespace TowerDefense
         {
             _currentLevel =_levelInfoList[0];
             Enemy._onDestroyed += handleEnemyDestroyed;
+            _enemyList = new List<Enemy>();
         }
 
         private void handleEnemyDestroyed()
@@ -81,6 +87,13 @@ namespace TowerDefense
                 _spawnTimer = 0f;
                 _spawnedEnemies++;
                 _enemiesAlive++;
+
+                if(_enemyList.Count < _plants.Count)
+                    enemy.SetTargetPlant(_plants[_enemyList.Count]);
+                else
+                    enemy.SetTargetPlant(null);
+                _enemyList.Add(enemy);
+
             }
 
             //End wave

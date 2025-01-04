@@ -36,5 +36,10 @@ namespace TowerDefense
             var damage_cost = base_damage - base_damage * R_MachineGun;
             return (int)damage_cost;
         }
+
+        public void EatPlant()
+        {
+            
+        }
     }
 }

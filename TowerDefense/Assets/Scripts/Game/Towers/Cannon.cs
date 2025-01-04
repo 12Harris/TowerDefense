@@ -4,6 +4,7 @@ using UnityEngine;
 using Harris.GPC;
 using System;
 using UnityEngine.UIElements;
+using Algorithms_C__Harris.Lists;
 
 namespace TowerDefense
 {
@@ -48,14 +49,26 @@ namespace TowerDefense
             //_invalidTargetIndicator.transform.localScale = new Vector3(Base_Detection_Range*2,transform.localScale.y,Base_Detection_Range*2);
 
             _detectionRangeIndicator.transform.localScale = new Vector3(Base_Detection_Range*2,transform.localScale.y,Base_Detection_Range*2);
-            _detectionRangeIndicator.transform.gameObject.SetActive(false);
+            _detectionRangeIndicator.gameObject.GetComponent<MeshRenderer>().enabled = false;
             //_detectionTrigger.Radius = Base_Detection_Range;
         }
+
+        /*public override void RemoveEnemy(Enemy enemy)
+        {
+            SListIterator<Enemy> itr = Targets.GetIterator();
+            itr.Start();
+            while(itr.Item() != enemy)
+                itr.Forth();
+
+            Debug.Log("r e = " + enemy);
+            Targets.Remove(itr);
+        }*/
 
         // Update is called once per frame
         public override void Update()
         {
             base.Update();
+            
 
             if(_firstUpdate_Cannon)
             {
@@ -63,21 +76,21 @@ namespace TowerDefense
                 ((ICommandReceiver)this).BindReceiver("LShiftCmd");
             }
 
-            _fireTimer += Time.deltaTime;
-            if(_fireTimer >= FireInterval)
+
+            if(CanFire && Targets.Count > 0)
             {
+                Debug.Log("CANNON CAN FIRE");
+                _fireTimer += Time.deltaTime;
 
-                if(CanFire && Targets.Count > 0)
+                if(_fireTimer >= FireInterval)
                 {
-
                     var _lookAt = new Vector3(_detectionTrigger.Center.x,transform.position.y,_detectionTrigger.Center.z);
                     TowerHead.LookAt(_lookAt);
                     Fire();
-
+                    _fireTimer = 0f;
                 }
-                _fireTimer = 0f;
-            }
 
+            }
         }
 
         public override void Select()
@@ -111,6 +124,10 @@ namespace TowerDefense
             //Update cannon fire target
             if(command.Name == "LShiftCmd" && command.Executing)
             {
+
+                if(Targets.Count > 0)
+                    Targets.Clear();
+                    
                 CanFire = false;
                 if((v2-v1).magnitude > 10)
                 {

@@ -1,4 +1,5 @@
 tree "Root"
     sequence
         Move
-        Destroy
+        MoveToTargetPlant
+        //Destroy

@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4494143499041213959}
   - component: {fileID: 6263635697100730975}
   - component: {fileID: 3858372219798391319}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SelectedIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 3150686688425419001}
   - component: {fileID: 1977042589439521404}
   - component: {fileID: 2126334353529530594}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: DetectionRangeIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8121752299105650325}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MuzzlePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 783238420051071164}
   - component: {fileID: 3291818275843837844}
   - component: {fileID: 762974394473992245}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: TargetIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 3086941922431488566}
   - component: {fileID: 2418946279984471624}
   - component: {fileID: 5176179860881853702}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 3093591498246058465}
   - component: {fileID: 6282901449922112169}
   - component: {fileID: 5079218888285053820}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Barrell
   m_TagString: Untagged
   m_Icon: {fileID: 0}

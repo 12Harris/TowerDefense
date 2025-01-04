@@ -29,9 +29,9 @@ namespace TowerDefense
         {
             //_bar.transform.parent.forward = new Vector3(-Camera.main.transform.forward.x,0,-Camera.main.transform.forward.z);
             //var lookAtPoint = new Vector3(Camera.main.transform.position.x,_bar.transform.position.y,Camera.main.transform.position.z);
-            var lookAtPoint = _bar.transform.position - Vector3.forward;
-            lookAtPoint.y = _bar.transform.position.y;
-            _bar.transform.LookAt(lookAtPoint);
+            var lookAtPoint = _bar.transform.parent.parent.position - Vector3.forward;
+            lookAtPoint.y = _bar.transform.parent.parent.position.y;
+            _bar.transform.parent.parent.LookAt(lookAtPoint);
         }
     }
 }

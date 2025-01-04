@@ -98,9 +98,9 @@ namespace TowerDefense
             _headRotationComponent = GetComponent<RotateObject>();
             _towerHead = transform.Find("Head");
             _detectionRangeIndicator = transform.Find("DetectionRangeIndicator");
-            
+
             _detectionTrigger._onEnemyDetected += AddEnemy;
-            _detectionTrigger._onFirstEnemyLost += RemoveFirstEnemy;
+            _detectionTrigger._onEnemyLost += RemoveEnemy;
             //_targets = new List<Enemy>();
             _targets = new SLinkedList<Enemy>(null);
             _friends = new List<Turret>();
@@ -111,11 +111,16 @@ namespace TowerDefense
         private void AddEnemy(Enemy enemy)
         {
             _targets.Append(enemy);
+            Debug.Log("ADDING ENEMY");
         }
 
-        private void RemoveFirstEnemy()
+        public virtual void RemoveEnemy(Enemy enemy)
         {
-            _targets.RemoveHead();
+            if(enemy == Targets[0])
+            {
+                Debug.Log("removing enemy");
+                _targets.RemoveHead();
+            }
         }
 
         // Start is called before the first frame update
@@ -189,11 +194,12 @@ namespace TowerDefense
         {
             if(_selected)
             {
-                _detectionRangeIndicator.gameObject.SetActive(true);
+                _detectionRangeIndicator.gameObject.GetComponent<MeshRenderer>().enabled = true;
             }
             else
             {
-                _detectionRangeIndicator.gameObject.SetActive(false);
+                _detectionRangeIndicator.gameObject.GetComponent<MeshRenderer>().enabled = false;
+
             }
         }
 
@@ -240,14 +246,23 @@ namespace TowerDefense
             var treeLayer = 1 << 8;
             foreach(var rayDirection in rayDirections)
             {
-                Debug.DrawRay(placementPosition - rayDirection + Vector3.up*0.5f, rayDirection * 2f, Color.green);
-                if (Physics.Raycast( placementPosition - rayDirection + Vector3.up*0.5f, rayDirection ,out rayHit,2f, _turret_waypoint_layer | treeLayer))
+                //Debug.DrawRay(placementPosition - rayDirection + Vector3.up*0.5f, rayDirection * 2f, Color.green);
+                if (Physics.Raycast( placementPosition - rayDirection + Vector3.up*0.5f, rayDirection ,out rayHit,2f, _turret_waypoint_layer))
                 {
+                    Debug.DrawRay(placementPosition - rayDirection + Vector3.up*0.5f, rayDirection * 2f, Color.green);
+
                     if(rayHit.collider.gameObject.tag == "Turret" && rayHit.collider == rayHit.collider.gameObject.GetComponent<Turret>().BoxCollider)
                         return Vector3.zero;
 
                     else if(rayHit.collider.gameObject.tag != "Turret")
                         return Vector3.zero;
+                }
+
+                else if (Physics.Raycast( placementPosition - rayDirection*2 + Vector3.up*0.5f, rayDirection ,out rayHit,3f, treeLayer))
+                {
+                    Debug.DrawRay(placementPosition - rayDirection*2+ Vector3.up*0.5f, rayDirection * 3f, Color.green);
+
+                    return Vector3.zero;
                 }
             }
             return transform.position;

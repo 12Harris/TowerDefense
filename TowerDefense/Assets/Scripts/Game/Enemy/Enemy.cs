@@ -36,6 +36,8 @@ namespace TowerDefense
 
         public List<Turret> P_Attackers => _p_attackers;
 
+        private GameObject _targetPlant = null;
+
         protected virtual void Awake()
         {
             _botController = GetComponent<AIBotController>();
@@ -67,6 +69,11 @@ namespace TowerDefense
             _p_attackers.Add(turret);
         }
 
+        public void SetTargetPlant(GameObject plant)
+        {
+            _targetPlant = plant;
+        }
+
 
         private void UpdateWaypointController()
         {
@@ -92,6 +99,36 @@ namespace TowerDefense
             }
         }
 
+        public void MoveToTargetplant()
+        {
+            if(_targetPlant == null)
+            {
+                Debug.Log("TP is null!");
+                return;
+            }
+
+
+            _botController.modelRotateSpeed = 15f;
+            
+            var plantPos = _targetPlant.transform.position;
+            plantPos.y = transform.position.y;
+
+            if(Vector3.Distance(transform.position,plantPos) > 0.8f)
+            {
+                Debug.Log("TP is valid!");
+                _botController.TurnTowardTarget(_targetPlant.transform);
+
+                var moveDir = (_targetPlant.transform.position-transform.position).normalized;
+                moveDir.y = 0;
+                GetComponent<Rigidbody>().velocity = moveDir * _botController.moveSpeed;
+            }
+            else
+            {
+               _botController.Stop();
+            }
+
+        }
+
         public virtual void Move()
         {
             _botController.MoveAlongWaypointPath();
@@ -104,8 +141,8 @@ namespace TowerDefense
 
         public void Destroy()
         {
-            GameObject.Destroy(gameObject);
-            _onDestroyed?.Invoke();
+            //GameObject.Destroy(gameObject);
+            //_onDestroyed?.Invoke();
         }
     }
 }

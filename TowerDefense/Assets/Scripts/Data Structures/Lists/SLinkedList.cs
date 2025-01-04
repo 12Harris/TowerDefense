@@ -160,6 +160,20 @@ namespace Algorithms_C__Harris.Lists
 			}
 		}
 
+		public void Clear()
+		{
+			SListIterator<T> itr = GetIterator();
+			itr.Start();
+			for (int i = 1; i < m_count; i++)
+				itr.Forth();
+			while(itr.Valid())
+			{
+				RemoveTail();
+				itr.Start();
+			}
+			
+		}
+
 		public void RemoveTail()
 		{
 			SListNode<T> node = m_head;

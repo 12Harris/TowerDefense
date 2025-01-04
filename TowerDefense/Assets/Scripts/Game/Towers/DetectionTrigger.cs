@@ -13,7 +13,7 @@ namespace TowerDefense
 
         public event Action<Enemy> _onEnemyDetected;
 
-        public event Action _onFirstEnemyLost;
+        public event Action<Enemy> _onEnemyLost;
 
         public float Radius {get => _detectionVolume.radius; set => _detectionVolume.radius = value;}
 
@@ -26,6 +26,9 @@ namespace TowerDefense
 
         void OnTriggerEnter(Collider other)
         {
+            if(!transform.parent.GetComponent<Turret>().IsActive)
+                return;
+
             if (other.gameObject.tag == "Enemy")
             {
                 var enemy = other.gameObject.GetComponent<Enemy>();
@@ -39,9 +42,16 @@ namespace TowerDefense
 
         void OnTriggerExit(Collider other)
         {
+            if(!transform.parent.GetComponent<Turret>().IsActive)
+                return;
+
             if (other.gameObject.tag == "Enemy")
             {
-                _onFirstEnemyLost?.Invoke();
+                var enemy = other.gameObject.GetComponent<Enemy>();
+
+                _onEnemyLost?.Invoke(enemy);
+
+                Debug.Log("ENEMIES LOST");
                 //_targets.RemoveHead();
             }
         }

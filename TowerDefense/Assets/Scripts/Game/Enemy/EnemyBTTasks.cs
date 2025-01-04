@@ -37,6 +37,12 @@ namespace TowerDefense
 		}
 
         [Task]
+        public void MoveToTargetPlant()
+        {
+            _enemy.MoveToTargetplant();
+        }
+
+        [Task]
         public virtual void Destroy()
         {
             _enemy.Destroy();
