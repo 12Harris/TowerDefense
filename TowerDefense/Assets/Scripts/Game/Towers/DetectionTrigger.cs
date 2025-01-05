@@ -26,6 +26,9 @@ namespace TowerDefense
 
         void OnTriggerEnter(Collider other)
         {
+
+            Debug.Log("on tigger enter detection trigger");
+            
             if(!transform.parent.GetComponent<Turret>().IsActive)
                 return;
 

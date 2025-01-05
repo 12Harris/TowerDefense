@@ -183,9 +183,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3764672701178255299, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
+      propertyPath: _type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8512366934711534046, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
       propertyPath: m_Name
-      value: Dandelion Flower (3)
+      value: Dandelion Flower
       objectReference: {fileID: 0}
     - target: {fileID: 9036982881413716836, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1137,7 +1141,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2984905280468743414, guid: 25b029ab7ba6e4a438a2f8639514afb0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 746909441}
   m_SourcePrefab: {fileID: 100100000, guid: 25b029ab7ba6e4a438a2f8639514afb0, type: 3}
 --- !u!1 &306008260
 GameObject:
@@ -1300,7 +1307,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2984905280468743414, guid: 25b029ab7ba6e4a438a2f8639514afb0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1091913424}
   m_SourcePrefab: {fileID: 100100000, guid: 25b029ab7ba6e4a438a2f8639514afb0, type: 3}
 --- !u!1 &331788262
 GameObject:
@@ -1463,7 +1473,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2984905280468743414, guid: 25b029ab7ba6e4a438a2f8639514afb0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1629825172}
   m_SourcePrefab: {fileID: 100100000, guid: 25b029ab7ba6e4a438a2f8639514afb0, type: 3}
 --- !u!1 &387295674
 GameObject:
@@ -1909,111 +1922,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495826958}
   m_CullTransparentMesh: 1
---- !u!1 &559004918
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 559004922}
-  - component: {fileID: 559004921}
-  - component: {fileID: 559004920}
-  - component: {fileID: 559004919}
-  m_Layer: 0
-  m_Name: Castle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &559004919
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559004918}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &559004920
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559004918}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 7c9fd557336ab7747994c798d46b4429, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &559004921
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559004918}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &559004922
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559004918}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.7, y: 0.5, z: 13.8}
-  m_LocalScale: {x: 1, y: 1, z: 5}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &561115785
 GameObject:
   m_ObjectHideFlags: 0
@@ -2703,6 +2611,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &746909438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2984905280468743414, guid: 25b029ab7ba6e4a438a2f8639514afb0, type: 3}
+  m_PrefabInstance: {fileID: 281411270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &746909441
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746909438}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &751982828
 GameObject:
   m_ObjectHideFlags: 0
@@ -3216,7 +3156,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2984905280468743414, guid: 25b029ab7ba6e4a438a2f8639514afb0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1803392754}
   m_SourcePrefab: {fileID: 100100000, guid: 25b029ab7ba6e4a438a2f8639514afb0, type: 3}
 --- !u!1001 &944172516
 PrefabInstance:
@@ -3226,9 +3169,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3764672701178255299, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
+      propertyPath: _type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8512366934711534046, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
       propertyPath: m_Name
-      value: Dandelion Flower (4)
+      value: Dandelion Flower
       objectReference: {fileID: 0}
     - target: {fileID: 9036982881413716836, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4036,6 +3983,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1091913421 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2984905280468743414, guid: 25b029ab7ba6e4a438a2f8639514afb0, type: 3}
+  m_PrefabInstance: {fileID: 327680391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1091913424
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091913421}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1094437139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4044,9 +4023,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3764672701178255299, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
+      propertyPath: _type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8512366934711534046, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
       propertyPath: m_Name
-      value: Dandelion Flower (2)
+      value: Dandelion Flower
       objectReference: {fileID: 0}
     - target: {fileID: 9036982881413716836, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5080,6 +5063,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1629825169 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2984905280468743414, guid: 25b029ab7ba6e4a438a2f8639514afb0, type: 3}
+  m_PrefabInstance: {fileID: 359420014}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1629825172
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629825169}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1653750927
 GameObject:
   m_ObjectHideFlags: 0
@@ -5109,8 +5124,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb784af401b72e641b41111427acb1a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _machineGunButton: {fileID: 0}
-  _cannonButton: {fileID: 0}
+  _machineGunButton: {fileID: 144475848}
+  _cannonButton: {fileID: 495826960}
+  _healthBar1Prefab: {fileID: 6386969077167656020, guid: 4a324dba52518d44c9ed90f88e9cb42f, type: 3}
+  _healthBar2Prefab: {fileID: 6386969077167656020, guid: f1cb5f0372f319c4080954e393c7f4ed, type: 3}
+  _uiCanvas: {fileID: 1971058362}
 --- !u!4 &1653750929
 Transform:
   m_ObjectHideFlags: 0
@@ -5388,9 +5406,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3764672701178255299, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
+      propertyPath: _type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8512366934711534046, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
       propertyPath: m_Name
-      value: Dandelion Flower (1)
+      value: Dandelion Flower
       objectReference: {fileID: 0}
     - target: {fileID: 9036982881413716836, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5521,6 +5543,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1803392751 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2984905280468743414, guid: 25b029ab7ba6e4a438a2f8639514afb0, type: 3}
+  m_PrefabInstance: {fileID: 934134665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1803392754
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803392751}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1804348856
 GameObject:
   m_ObjectHideFlags: 0
@@ -5584,7 +5638,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1808367226}
   - component: {fileID: 1808367225}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5607,11 +5661,11 @@ MonoBehaviour:
   - {fileID: 2052724596379226676, guid: 4627b2928a387624e9d40fc58a570403, type: 3}
   - {fileID: 5652656103901335181, guid: 05b84a74a91c48c4d84b28a71a1a2e85, type: 3}
   _plants:
-  - {fileID: 975702635}
-  - {fileID: 1770492965}
   - {fileID: 1369482181}
+  - {fileID: 975702635}
   - {fileID: 398067448}
   - {fileID: 124834670}
+  - {fileID: 1770492965}
   _timeBetweenWaves: 6
   _levelInfoList:
   - {fileID: 11400000, guid: afdaa034a7d1620468d6cfd36f4ff8ac, type: 2}
@@ -6511,6 +6565,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3764672701178255299, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
+      propertyPath: _type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8512366934711534046, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
       propertyPath: m_Name
       value: Dandelion Flower
@@ -6573,7 +6631,6 @@ SceneRoots:
   - {fileID: 1971058362}
   - {fileID: 232580888}
   - {fileID: 577909446}
-  - {fileID: 559004922}
   - {fileID: 327680391}
   - {fileID: 359420014}
   - {fileID: 934134665}

@@ -87,7 +87,8 @@ namespace TowerDefense
 
                 _placementPosition = MouseWorldPosition();
                 towerToPlace.transform.position =  _placementPosition + Vector3.up*0.5f;
-                towerToPlace.GetComponent<BoxCollider>().enabled = false;
+                //towerToPlace.GetComponent<BoxCollider>().enabled = false;
+                //towerToPlace.GetComponent<Turret>().EnableCollider(false);
                 _finalPlacementPosition = towerToPlace.GetComponent<Turret>().GetFinalPlacementLocation(_placementPosition);
 
                 if(_finalPlacementPosition != Vector3.zero)
@@ -148,7 +149,8 @@ namespace TowerDefense
                     Debug.Log("Placing Tower!");
 
                     startingTowerPlacement = false;
-                    towerToPlace.GetComponent<BoxCollider>().enabled = true;
+                    //towerToPlace.GetComponent<BoxCollider>().enabled = true;
+                    towerToPlace.GetComponent<Turret>().EnableCollider(true);
                     towerToPlace.GetComponent<Turret>().Activate();
 
                     //Determine any friend turrets in the near vicinity
@@ -161,16 +163,16 @@ namespace TowerDefense
                     foreach (var hitCollider in hitColliders)
                     {
 
-                        if(hitCollider.gameObject == towerToPlace)
+                        if(hitCollider.transform.parent.gameObject == towerToPlace)
                         {
                             continue;
                         }
                         Debug.Log("hit collider: " + hitCollider.transform);
-                        var otherTurret = hitCollider.gameObject.GetComponent<Turret>();
+                        var otherTurret = hitCollider.transform.parent.gameObject.GetComponent<Turret>();
 
                         if(!turret.Friends.Contains(otherTurret))
                         {
-                            turret.Friends.Add(hitCollider.gameObject.GetComponent<Turret>());
+                            turret.Friends.Add(hitCollider.transform.parent.gameObject.GetComponent<Turret>());
                             turret.Friends[turret.Friends.Count-1].Friends.Add(turret);
                         }
                     }

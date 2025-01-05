@@ -19,7 +19,7 @@ namespace TowerDefense
 
         public int CurrentHealth => _currentHealth;
 
-        [SerializeField]
+        //[SerializeField]
         private HealthBar _healthBar;
 
         [SerializeField]
@@ -32,9 +32,17 @@ namespace TowerDefense
 
         public event Action _onLostAllHealth;
 
+        [SerializeField]
+        private int _type = 0;
+
         public void Start()
         {
             _currentHealth = _maxHealth;
+            
+            if(_type == 1)
+                _healthBar = UIManager.SpawnHealthBar1(transform);
+            else if(_type == 2)
+                _healthBar = UIManager.SpawnHealthBar2(transform);
             _healthBar.Reset();
         }
 

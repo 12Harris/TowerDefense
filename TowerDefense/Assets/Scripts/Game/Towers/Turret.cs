@@ -87,6 +87,10 @@ namespace TowerDefense
 
         public bool IsActive => _isActive;
 
+        private bool _withinTree = false;
+
+        private TurretCollider _turretCollider;
+
         public void Activate()
         {
             _isActive = true;
@@ -105,7 +109,10 @@ namespace TowerDefense
             _targets = new SLinkedList<Enemy>(null);
             _friends = new List<Turret>();
             _muzzlePoint = transform.Find("Head/Barrell/MuzzlePoint");
-            _boxCollider = GetComponent<BoxCollider>();
+            _boxCollider = transform.Find("Collider").GetComponent<BoxCollider>();
+            _turretCollider = transform.Find("Collider").gameObject.GetComponent<TurretCollider>();
+            _turretCollider._onTreeDetected += TreeDetected;
+            _turretCollider._onTreeLeft += TreeLeft;
         }
 
         private void AddEnemy(Enemy enemy)
@@ -121,6 +128,16 @@ namespace TowerDefense
                 Debug.Log("removing enemy");
                 _targets.RemoveHead();
             }
+        }
+
+        private void TreeDetected()
+        {
+            _withinTree = true;
+        }
+
+        private void TreeLeft()
+        {
+            _withinTree = false;
         }
 
         // Start is called before the first frame update
@@ -230,6 +247,11 @@ namespace TowerDefense
             }
         }
 
+        public void EnableCollider(bool value)
+        {
+            _turretCollider.Enable(value);
+        }
+
         public virtual Vector3 GetFinalPlacementLocation(Vector3 placementPosition) //Put this logic into turret module(abstract) cannon placement range...
         {
             //public static bool Raycast(Vector3 origin, Vector3 direction, out RaycastHit hitInfo, float maxDistance, int layerMask, QueryTriggerInteraction queryTriggerInteraction);
@@ -244,27 +266,57 @@ namespace TowerDefense
 
             //public static void DrawRay(Vector3 start, Vector3 dir, Color color = Color.white, float duration = 0.0f, bool depthTest = true);
             var treeLayer = 1 << 8;
-            foreach(var rayDirection in rayDirections)
+            /*foreach(var rayDirection in rayDirections)
             {
                 //Debug.DrawRay(placementPosition - rayDirection + Vector3.up*0.5f, rayDirection * 2f, Color.green);
                 if (Physics.Raycast( placementPosition - rayDirection + Vector3.up*0.5f, rayDirection ,out rayHit,2f, _turret_waypoint_layer))
                 {
                     Debug.DrawRay(placementPosition - rayDirection + Vector3.up*0.5f, rayDirection * 2f, Color.green);
 
-                    if(rayHit.collider.gameObject.tag == "Turret" && rayHit.collider == rayHit.collider.gameObject.GetComponent<Turret>().BoxCollider)
+                    //if(rayHit.collider.gameObject.tag == "Turret" && rayHit.collider == rayHit.collider.gameObject.GetComponent<BoxCollider>())
+                    if(rayHit.collider.gameObject.tag == "Turret" && rayHit.collider != _boxCollider)
+                    {
+                        Debug.Log("ALL SHIT");
                         return Vector3.zero;
+                    }
 
                     else if(rayHit.collider.gameObject.tag != "Turret")
+                    {
+                        Debug.Log("ALL SHIT 2: " + rayHit.collider.gameObject);
                         return Vector3.zero;
+                    }
+
                 }
+            }*/
 
-                else if (Physics.Raycast( placementPosition - rayDirection*2 + Vector3.up*0.5f, rayDirection ,out rayHit,3f, treeLayer))
+            var waypointHit = false;
+            var turretHit = false;
+            foreach(var rayDirection in rayDirections)
+            {
+                RaycastHit[] hits;
+                hits = Physics.RaycastAll(placementPosition - rayDirection + Vector3.up*0.5f, rayDirection, 2F, _turret_waypoint_layer);
+
+                for (int i = 0; i < hits.Length; i++)
                 {
-                    Debug.DrawRay(placementPosition - rayDirection*2+ Vector3.up*0.5f, rayDirection * 3f, Color.green);
+                    RaycastHit hit = hits[i];
 
-                    return Vector3.zero;
+                    if(hit.collider.gameObject.tag != "Turret")
+                    {
+                        waypointHit = true;
+                    }
+                    else if(hit.collider != _boxCollider)
+                    {
+                        turretHit = true;
+                    }
                 }
             }
+
+            if(waypointHit || turretHit)
+                return Vector3.zero;
+            
+            if(_withinTree)
+                return Vector3.zero;
+
             return transform.position;
             
         }
