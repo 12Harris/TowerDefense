@@ -147,8 +147,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39537995}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000010748726, y: 0.70710695, z: 0.000000010748731, w: 0.7071066}
-  m_LocalPosition: {x: 21.933552, y: -0.000000059604645, z: 10.000001}
+  m_LocalRotation: {x: -0, y: 0.70710695, z: -0, w: 0.7071066}
+  m_LocalPosition: {x: 21.933552, y: 0, z: 10.000001}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -187,6 +187,10 @@ PrefabInstance:
       propertyPath: _type
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3764672701178255299, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
+      propertyPath: _healthBarPosition
+      value: 
+      objectReference: {fileID: 124834674}
     - target: {fileID: 8512366934711534046, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
       propertyPath: m_Name
       value: Dandelion Flower
@@ -398,7 +402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114329444}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000014224415, y: -0.7071068, z: 0.000000014224415, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 28.086704, y: 0, z: 36.1}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
@@ -429,6 +433,11 @@ BoxCollider:
 --- !u!1 &124834670 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8512366934711534046, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
+  m_PrefabInstance: {fileID: 60671138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &124834674 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9036982881413716836, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
   m_PrefabInstance: {fileID: 60671138}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &144475846
@@ -937,8 +946,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200573740}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000017949603, y: 0.13640468, z: 0.0000000024715108, w: 0.9906532}
-  m_LocalPosition: {x: 35.744774, y: -0.000000059604645, z: 17.156036}
+  m_LocalRotation: {x: -0, y: 0.13640468, z: -0, w: 0.9906532}
+  m_LocalPosition: {x: 35.744774, y: 0, z: 17.156036}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1058,7 +1067,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260016357}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000037521158, y: 0.065914184, z: -0.0000000024785662, w: 0.9978253}
+  m_LocalRotation: {x: -0, y: 0.065914184, z: -0, w: 0.9978253}
   m_LocalPosition: {x: 0.087789536, y: 0, z: 3.061264}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
@@ -1390,7 +1399,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347023823}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000046711207, y: -0.05583439, z: 0.0000000026121667, w: 0.9984401}
+  m_LocalRotation: {x: -0, y: -0.05583439, z: -0, w: 0.9984401}
   m_LocalPosition: {x: 36.240192, y: 0, z: 30.531687}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
@@ -1503,7 +1512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387295674}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000010978732, y: 0.7071066, z: -0.000000010978726, w: 0.70710695}
+  m_LocalRotation: {x: -0, y: 0.7071066, z: -0, w: 0.70710695}
   m_LocalPosition: {x: 20.014074, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
@@ -1534,6 +1543,11 @@ BoxCollider:
 --- !u!1 &398067448 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8512366934711534046, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
+  m_PrefabInstance: {fileID: 1094437139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &398067452 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9036982881413716836, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
   m_PrefabInstance: {fileID: 1094437139}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &419859347
@@ -1978,7 +1992,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576866533}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000015927572, y: 0.4902552, z: -0.000000008959114, w: 0.87157893}
+  m_LocalRotation: {x: -0, y: 0.4902552, z: -0, w: 0.87157893}
   m_LocalPosition: {x: 2.3703709, y: 0, z: 8.627408}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
@@ -2282,7 +2296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620053053}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000015651292, y: -0.7071068, z: 0.000000015651292, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 30.85, y: 0, z: 36.1}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
@@ -2514,7 +2528,7 @@ Transform:
   m_GameObject: {fileID: 728937819}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.19, y: 1, z: -22.25}
+  m_LocalPosition: {x: -22.19, y: 0, z: -22.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2547,7 +2561,7 @@ MonoBehaviour:
   - {fileID: 2126085138}
   - {fileID: 1804348857}
   - {fileID: 862956369}
-  firstPoint: {x: 14.109999, y: 1, z: -2}
+  firstPoint: {x: 14.109999, y: 0, z: -2}
   closed: 0
   shouldReverse: 0
   controlPoints:
@@ -3026,7 +3040,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898774884}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00000001659233, y: 0.2183538, z: -0.0000000037125842, w: 0.9758697}
+  m_LocalRotation: {x: -0, y: 0.2183538, z: -0, w: 0.9758697}
   m_LocalPosition: {x: 34.99778, y: 0, z: 15.57037}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
@@ -3173,6 +3187,10 @@ PrefabInstance:
       propertyPath: _type
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3764672701178255299, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
+      propertyPath: _healthBarPosition
+      value: 
+      objectReference: {fileID: 1369482185}
     - target: {fileID: 8512366934711534046, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
       propertyPath: m_Name
       value: Dandelion Flower
@@ -3350,6 +3368,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8512366934711534046, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
   m_PrefabInstance: {fileID: 3063084635305761032}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &975702639 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9036982881413716836, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
+  m_PrefabInstance: {fileID: 3063084635305761032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &983498138
 GameObject:
   m_ObjectHideFlags: 0
@@ -3428,8 +3451,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984261553}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000013681035, y: -0.7071068, z: -0.000000013681035, w: 0.7071068}
-  m_LocalPosition: {x: 26.605207, y: -0.000000059604645, z: 36.1}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 26.605207, y: 0, z: 36.1}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3805,8 +3828,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1063963277}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000038010786, y: 0.13175367, z: 0.0000000050521023, w: 0.9912825}
-  m_LocalPosition: {x: 0.29629707, y: -0.00000011920929, z: 4.632597}
+  m_LocalRotation: {x: -0, y: 0.13175367, z: -0, w: 0.9912825}
+  m_LocalPosition: {x: 0.29629707, y: 0, z: 4.632597}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4027,6 +4050,10 @@ PrefabInstance:
       propertyPath: _type
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3764672701178255299, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
+      propertyPath: _healthBarPosition
+      value: 
+      objectReference: {fileID: 398067452}
     - target: {fileID: 8512366934711534046, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
       propertyPath: m_Name
       value: Dandelion Flower
@@ -4102,7 +4129,7 @@ Transform:
   m_GameObject: {fileID: 1121529867}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.19, y: 1, z: -22.25}
+  m_LocalPosition: {x: -22.19, y: 0, z: -22.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4145,7 +4172,7 @@ MonoBehaviour:
   - {fileID: 200573741}
   - {fileID: 983498139}
   - {fileID: 161752944}
-  firstPoint: {x: 3.7299995, y: 1, z: -12.25}
+  firstPoint: {x: 3.7299995, y: 0, z: -12.25}
   closed: 0
   shouldReverse: 0
   controlPoints:
@@ -4243,8 +4270,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251547667}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000012303135, y: 0.611738, z: 0.000000009514185, w: 0.79106045}
-  m_LocalPosition: {x: 3.764061, y: -0.000000059604645, z: 9.474295}
+  m_LocalRotation: {x: -0, y: 0.611738, z: -0, w: 0.79106045}
+  m_LocalPosition: {x: 3.764061, y: 0, z: 9.474295}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4297,7 +4324,7 @@ Transform:
   m_GameObject: {fileID: 1301590269}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.19, y: 1, z: -22.25}
+  m_LocalPosition: {x: -22.19, y: 0, z: -22.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4340,7 +4367,7 @@ MonoBehaviour:
   - {fileID: 39537996}
   - {fileID: 1502113246}
   - {fileID: 1091087358}
-  firstPoint: {x: -14.190001, y: 1, z: -12.25}
+  firstPoint: {x: -14.190001, y: 0, z: -12.25}
   closed: 0
   shouldReverse: 0
   controlPoints:
@@ -4566,8 +4593,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364454335}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000021703396, y: 0.70710707, z: 0.000000021703418, w: 0.7071065}
-  m_LocalPosition: {x: 14.25926, y: -0.00000011920929, z: 10.000001}
+  m_LocalRotation: {x: -0, y: 0.70710707, z: -0, w: 0.7071065}
+  m_LocalPosition: {x: 14.25926, y: 0, z: 10.000001}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4597,6 +4624,11 @@ BoxCollider:
 --- !u!1 &1369482181 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8512366934711534046, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
+  m_PrefabInstance: {fileID: 944172516}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1369482185 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9036982881413716836, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
   m_PrefabInstance: {fileID: 944172516}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1431316962
@@ -4708,8 +4740,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488449764}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00000001284465, y: -0.7071068, z: 0.00000001284465, w: 0.7071068}
-  m_LocalPosition: {x: 23.471483, y: -0.000000059604645, z: 36.1}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 23.471483, y: 0, z: 36.1}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4845,7 +4877,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540720801}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000027426493, y: 0.5133712, z: -0.000000016407038, w: 0.85816664}
+  m_LocalRotation: {x: -0, y: 0.5133712, z: -0, w: 0.85816664}
   m_LocalPosition: {x: 29.612263, y: 0, z: 10.6310005}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
@@ -4929,8 +4961,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570896374}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00000001813049, y: -0.5956656, z: -0.000000013445309, w: 0.80323255}
-  m_LocalPosition: {x: 33.735733, y: -0.000000059604645, z: 35.68683}
+  m_LocalRotation: {x: -0, y: -0.5956656, z: -0, w: 0.80323255}
+  m_LocalPosition: {x: 33.735733, y: 0, z: 35.68683}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5035,8 +5067,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627879306}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0000000148733035, y: -0.7071068, z: -0.0000000148733035, w: 0.7071068}
-  m_LocalPosition: {x: 29.503567, y: -0.000000059604645, z: 36.1}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 29.503567, y: 0, z: 36.1}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5170,7 +5202,7 @@ Transform:
   m_GameObject: {fileID: 1662709238}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.19, y: 1, z: -22.25}
+  m_LocalPosition: {x: -22.19, y: 0, z: -22.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5223,7 +5255,7 @@ MonoBehaviour:
   - {fileID: 1431316963}
   - {fileID: 785084195}
   - {fileID: 68858820}
-  firstPoint: {x: 8.66, y: 1, z: 13.849998}
+  firstPoint: {x: 8.66, y: 0, z: 13.849998}
   closed: 0
   shouldReverse: 0
   controlPoints:
@@ -5312,7 +5344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767955177}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000022713094, y: -0.45765582, z: 0.000000011690962, w: 0.88912946}
+  m_LocalRotation: {x: -0, y: -0.45765582, z: -0, w: 0.88912946}
   m_LocalPosition: {x: 34.685184, y: 0, z: 35.00889}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
@@ -5343,6 +5375,11 @@ BoxCollider:
 --- !u!1 &1770492965 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8512366934711534046, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
+  m_PrefabInstance: {fileID: 1780855388}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1770492969 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9036982881413716836, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
   m_PrefabInstance: {fileID: 1780855388}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1773607102
@@ -5410,6 +5447,10 @@ PrefabInstance:
       propertyPath: _type
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3764672701178255299, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
+      propertyPath: _healthBarPosition
+      value: 
+      objectReference: {fileID: 1770492969}
     - target: {fileID: 8512366934711534046, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
       propertyPath: m_Name
       value: Dandelion Flower
@@ -5515,7 +5556,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798422614}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000021094541, y: 0.7071066, z: -0.00000002109453, w: 0.70710695}
+  m_LocalRotation: {x: -0, y: 0.7071066, z: -0, w: 0.70710695}
   m_LocalPosition: {x: 12.261262, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
@@ -5846,8 +5887,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923735029}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000025056172, y: -0.7071068, z: -0.000000025056172, w: 0.7071068}
-  m_LocalPosition: {x: 21.830845, y: -0.00000011920929, z: 36.1}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 21.830845, y: 0, z: 36.1}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6179,8 +6220,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079785930}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00000004780841, y: -0.11235051, z: -0.000000005405524, w: 0.9936687}
-  m_LocalPosition: {x: 36.098145, y: -0.00000011920929, z: 31.797777}
+  m_LocalRotation: {x: -0, y: -0.11235051, z: -0, w: 0.9936687}
+  m_LocalPosition: {x: 36.098145, y: 0, z: 31.797777}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6233,7 +6274,7 @@ Transform:
   m_GameObject: {fileID: 2095553018}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.19, y: 1, z: -22.25}
+  m_LocalPosition: {x: -22.19, y: 0, z: -22.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6276,7 +6317,7 @@ MonoBehaviour:
   - {fileID: 1570896375}
   - {fileID: 1340050622}
   - {fileID: 1074166515}
-  firstPoint: {x: 14.109999, y: 1, z: 5.8099995}
+  firstPoint: {x: 14.109999, y: 0, z: 5.8099995}
   closed: 0
   shouldReverse: 0
   controlPoints:
@@ -6313,7 +6354,7 @@ Transform:
   m_GameObject: {fileID: 2108901492}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.19, y: 1, z: -22.25}
+  m_LocalPosition: {x: -22.19, y: 0, z: -22.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6356,7 +6397,7 @@ MonoBehaviour:
   - {fileID: 1251547668}
   - {fileID: 85220389}
   - {fileID: 753043839}
-  firstPoint: {x: -22.19, y: 1, z: -22.25}
+  firstPoint: {x: -22.19, y: 0, z: -22.25}
   closed: 0
   shouldReverse: 0
   controlPoints:
@@ -6392,7 +6433,7 @@ Transform:
   m_GameObject: {fileID: 2111962179}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.19, y: 1, z: -22.25}
+  m_LocalPosition: {x: -22.19, y: 0.5, z: -22.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6476,7 +6517,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139571737}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000013225564, y: -0.7071068, z: 0.000000013225564, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 25.064869, y: 0, z: 36.1}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
@@ -6529,8 +6570,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144905513}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000028665388, y: 0.4347538, z: 0.0000000138386484, w: 0.90054935}
-  m_LocalPosition: {x: 31.255554, y: -0.00000011920929, z: 11.512964}
+  m_LocalRotation: {x: -0, y: 0.4347538, z: -0, w: 0.90054935}
+  m_LocalPosition: {x: 31.255554, y: 0, z: 11.512964}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6569,6 +6610,10 @@ PrefabInstance:
       propertyPath: _type
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3764672701178255299, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
+      propertyPath: _healthBarPosition
+      value: 
+      objectReference: {fileID: 975702639}
     - target: {fileID: 8512366934711534046, guid: e273f4b02b5ae814fa5af4d884f653f3, type: 3}
       propertyPath: m_Name
       value: Dandelion Flower

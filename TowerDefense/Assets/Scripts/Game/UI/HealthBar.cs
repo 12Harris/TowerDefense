@@ -43,7 +43,7 @@ namespace TowerDefense
 
                 var lookAtPoint = _bar.transform.parent.parent.position - Vector3.forward;
                 lookAtPoint.y = _bar.transform.parent.parent.position.y;
-                _bar.transform.parent.parent.LookAt(lookAtPoint);
+                //_bar.transform.parent.parent.LookAt(lookAtPoint);
             }
         }
     }

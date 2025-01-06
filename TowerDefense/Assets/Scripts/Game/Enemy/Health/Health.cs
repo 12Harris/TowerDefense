@@ -35,14 +35,17 @@ namespace TowerDefense
         [SerializeField]
         private int _type = 0;
 
+        [SerializeField]
+        private Transform _healthBarPosition;
+
         public void Start()
         {
             _currentHealth = _maxHealth;
             
             if(_type == 1)
-                _healthBar = UIManager.SpawnHealthBar1(transform);
+                _healthBar = UIManager.SpawnHealthBar1(_healthBarPosition);
             else if(_type == 2)
-                _healthBar = UIManager.SpawnHealthBar2(transform);
+                _healthBar = UIManager.SpawnHealthBar2(_healthBarPosition);
             _healthBar.Reset();
         }
 
