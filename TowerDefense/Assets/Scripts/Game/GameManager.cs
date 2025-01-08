@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 using Harris.GPC;
-using Unity.Plastic.Newtonsoft.Json.Serialization;
 
 namespace TowerDefense
 {
