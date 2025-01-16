@@ -16,6 +16,10 @@ namespace TowerDefense
         public TowerButton CannonButton => _cannonButton;
 
         [SerializeField]
+        private TowerButton _gridTowerGunButton;
+        public TowerButton GridTowerButton => _gridTowerGunButton;
+
+        [SerializeField]
         private HealthBar _healthBar1Prefab;
         public HealthBar HealthBar1Prefab => _healthBar1Prefab;
 

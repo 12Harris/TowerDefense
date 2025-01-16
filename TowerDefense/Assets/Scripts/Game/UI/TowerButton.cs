@@ -22,6 +22,9 @@ namespace TowerDefense
 
             else if(_id == 1)//Cannon Button
                 _button.onClick.AddListener(() => UIEventBus.Execute(UIEventTypes.CANNONBUTTONCLICK));
+
+            else if(_id == 2)//Grid Tower Button
+                _button.onClick.AddListener(() => UIEventBus.Execute(UIEventTypes.GRIDTOWERBUTTONCLICK));
         }
 
         // Start is called before the first frame update
