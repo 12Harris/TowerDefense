@@ -10,6 +10,8 @@ public class Pathfinding : MonoBehaviour
     public Node StartPosition;//Starting position to pathfind from
     public Node TargetPosition;//Starting position to pathfind to
 
+    private bool _foundPath = false;
+
     public PolygonalMap getMapReference()
     {
 
@@ -49,6 +51,7 @@ public class Pathfinding : MonoBehaviour
         HashSet<Node> ClosedList = new HashSet<Node>();//Hashset of nodes for the closed list
 
         OpenList.Add(StartNode);//Add the starting node to the open list to begin the program
+        _foundPath = false;
 
         while (OpenList.Count > 0)//Whilst there is something in the open list
         {
@@ -65,11 +68,12 @@ public class Pathfinding : MonoBehaviour
 
             if (CurrentNode == TargetNode)//If the current node is the same as the target node
             {
+                _foundPath = true;
                 GetFinalPath(StartNode, TargetNode);//Calculate the final path
             }
 
-            //if (MapReference.GetNeighboringNodes(CurrentNode).Count == 0)
-                //Debug.Log("node has no neighbors??");
+            if (MapReference.GetNeighboringNodes(CurrentNode).Count == 0)
+                Debug.Log("node has no neighbors??");
 
             foreach (Node NeighborNode in MapReference.GetNeighboringNodes(CurrentNode))//Loop through each neighbor of the current node
             {
@@ -94,6 +98,9 @@ public class Pathfinding : MonoBehaviour
             }
 
         }
+
+        if(!_foundPath)
+            MapReference.FinalPath.Clear();
     }
 
 
@@ -109,8 +116,10 @@ public class Pathfinding : MonoBehaviour
             CurrentNode = CurrentNode.ParentNode;//Move onto its parent node
         }
 
+        FinalPath.Add(a_StartingNode);
         FinalPath.Reverse();//Reverse the path to get the correct order
 
+        //if(FinalPath.Count >)
         MapReference.FinalPath = FinalPath;//Set the final path
 
     }
@@ -121,6 +130,7 @@ public class Pathfinding : MonoBehaviour
         int iy = Mathf.Abs(a_nodeA.iGridY - a_nodeB.iGridY);//y1-y2
 
         return ix + iy;//Return the sum*/
-        return Vector3.Distance(a_nodeA.vPosition, a_nodeB.vPosition);
+        //return Vector3.Distance(a_nodeA.vPosition, a_nodeB.vPosition);//WRONG : THIS IS NOT THE MANHATTEN DISTANCE :)
+        return Mathf.Abs((a_nodeA.vPosition.x - a_nodeB.vPosition.x) + (a_nodeA.vPosition.z - a_nodeB.vPosition.z));
     }
 }

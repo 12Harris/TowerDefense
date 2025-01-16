@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TowerDefense;
 using UnityEngine;
 
 public class Node : MonoBehaviour
@@ -15,36 +16,17 @@ public class Node : MonoBehaviour
 
     public float FCost { get { return igCost + ihCost; } }//Quick get function to add G cost and H Cost, and since we'll never need to edit FCost, we dont need a set function.
 
+    public GridTower _gridTower;
     /*public Node(Vector3 a_vPos)//Constructor
     {
         vPosition = a_vPos;//The world position of the node.
     }*/
 
-
-    public bool connectedToNode(Node otherNode, LayerMask whatIsNode)
+    private void Awake()
     {
-        bool connected = false;
-
-        //if(!(isStart && otherNode.isEnd || isEnd && otherNode.isStart))//start node and end node arent connected to each other
-        {
-            //cast a ray from this node to the other node to check if they are connected or obstructed by an obstacle
-            //they are not obstructed if another node is in the way
-            Ray ray = new Ray(vPosition, otherNode.vPosition - vPosition);
-
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, Vector3.Distance(vPosition,otherNode.vPosition), whatIsNode))
-            {
-                Debug.Log("the ray hit: " + hit.collider.gameObject);
-            }
-
-            if (!Physics.Raycast(ray, Vector3.Distance(vPosition,otherNode.vPosition), whatIsNode))
-            {
-                connected = true;
-            }
-
-        }
-        return connected;
+        _gridTower = null;
     }
+
 
     public void SetPosition(Vector3 pos)
     {

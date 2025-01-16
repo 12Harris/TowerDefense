@@ -10,15 +10,16 @@ using Algorithms_C__Harris.Lists;
 
 namespace TowerDefense
 {
-    public abstract class GridTower : MonoBehaviour, ICommandReceiver
+    public class GridTower : MonoBehaviour, ICommandReceiver
     {
 
         private BoxCollider _boxCollider;
         private bool _selected = false;
         private bool _isActive = false;
 
-        private int _layerMaskTurret;
-        private int _turretLayer=3;
+        private int _gridNodeLayerMask;
+        private int _gridNodeLayer = 10;
+        private int _turretLayer=7;
 
         private bool _firstUpdate = false;
 
@@ -39,6 +40,7 @@ namespace TowerDefense
         public virtual void Start()
         {
             var layerMaskTurret = 1 << _turretLayer;
+            _gridNodeLayerMask = 1 << _gridNodeLayer;
         }
 
         // Update is called once per frame
@@ -97,7 +99,30 @@ namespace TowerDefense
             _boxCollider.enabled = value;
         }
 
+        public virtual Vector3 GetFinalPlacementLocation(Vector3 placementPosition) //Put this logic into turret module(abstract) cannon placement range...
+        {
+            var ray = new Ray(placementPosition + Vector3.up, -Vector3.up);
+            //public static bool Raycast(Vector3 origin, Vector3 direction, out RaycastHit hitInfo, float maxDistance, int layerMask, QueryTriggerInteraction queryTriggerInteraction);
+            RaycastHit rayHit;    
+
+            if(PolygonalMap.Instance.FinalPath.Count < 1)
+            {
+                return Vector3.zero;
+            }           
         
+            if (Physics.Raycast(ray, out rayHit,Mathf.Infinity,_gridNodeLayerMask))
+            {
+                if(rayHit.collider.gameObject.GetComponent<Node>()._gridTower != null)
+                {
+                    return Vector3.zero;
+                }
+            }
+
+
+
+            return transform.position;
+            
+        }
 
     }
 }

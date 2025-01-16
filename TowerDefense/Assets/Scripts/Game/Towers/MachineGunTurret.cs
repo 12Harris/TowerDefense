@@ -48,6 +48,7 @@ namespace TowerDefense
                 _lineRenderer.SetPosition(0, _muzzlePoint.position);
                 _lineRenderer.SetPosition(1, _lookAt);
 
+
             }
             else
             {

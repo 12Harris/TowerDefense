@@ -33,7 +33,6 @@ namespace TowerDefense
     {
         public static readonly UIEventTypes TURRETBUTTONCLICK =  new UIEventTypes("TURRETBUTTONCLICK",  new UIButtonEvent(UIManager.Instance.MachineGunButton));
         public static readonly UIEventTypes CANNONBUTTONCLICK =  new UIEventTypes("CANNONBUTTONCLICK",  new UIButtonEvent(UIManager.Instance.CannonButton));
-
         public static readonly UIEventTypes GRIDTOWERBUTTONCLICK =  new UIEventTypes("GRIDTOWERBUTTONCLICK",  new UIButtonEvent(UIManager.Instance.GridTowerButton));
 
         private int id = -1;
