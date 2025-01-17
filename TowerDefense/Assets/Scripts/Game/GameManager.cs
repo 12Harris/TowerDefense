@@ -108,7 +108,7 @@ namespace TowerDefense
             }
             _enemyPathRenderer.SetPositions(points);
             _enemyPathRenderer.widthMultiplier = 0.2f;
-            _enemyPathRenderer.SetColors(Color.red, Color.red);
+            //_enemyPathRenderer.SetColors(Color.red, Color.red);
 
             Debug.Log("enemy path has: " + PolygonalMap.Instance.FinalPath.Count + " waypoints!");
 
@@ -145,7 +145,7 @@ namespace TowerDefense
                 _finalPlacementPosition = towerToPlace.GetComponent<GridTower>().GetFinalPlacementLocation(_placementPosition);
                 if(_finalPlacementPosition != Vector3.zero)
                 {
-                    towerToPlace.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+                    towerToPlace.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.gray);
                 }
                 else
                 {
